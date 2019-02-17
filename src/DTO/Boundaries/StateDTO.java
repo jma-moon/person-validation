@@ -4,7 +4,7 @@ package DTO.Boundaries;
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class StateDTO {
+public class StateDTO extends BoundaryDTO {
 
     private Integer countryId;
 

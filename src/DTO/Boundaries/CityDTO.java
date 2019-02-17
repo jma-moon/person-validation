@@ -4,7 +4,7 @@ package DTO.Boundaries;
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class CityDTO {
+public class CityDTO extends BoundaryDTO {
 
     private Integer countyId;
 
