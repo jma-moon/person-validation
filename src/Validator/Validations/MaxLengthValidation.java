@@ -1,4 +1,4 @@
-package Validator.Validators;
+package Validator.Validations;
 
 import Validator.Validation;
 
@@ -6,19 +6,19 @@ import Validator.Validation;
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class MaxValidation extends Validation<Integer, Integer> {
+public class MaxLengthValidation extends Validation<String, Integer> {
 
-    public MaxValidation(Integer payload) {
+    public MaxLengthValidation(Integer payload) {
         super(payload);
     }
 
     @Override
-    public boolean validate(Integer field) {
+    public boolean validate(String field) {
 
         boolean res = false;
 
         if (this.payload != null && field != null) {
-            res = field <= this.payload;
+            res = field.length() <= this.payload;
         }
 
         return res;

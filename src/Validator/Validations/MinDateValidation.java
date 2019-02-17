@@ -1,24 +1,25 @@
-package Validator.Validators;
+package Validator.Validations;
 
 import Validator.Validation;
+import java.util.Date;
 
 /**
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class MinValidation extends Validation<Integer, Integer> {
+public class MinDateValidation extends Validation<Date, Date> {
 
-    public MinValidation(Integer payload) {
+    public MinDateValidation(Date payload) {
         super(payload);
     }
 
     @Override
-    public boolean validate(Integer field) {
+    public boolean validate(Date field) {
 
         boolean res = false;
 
         if (this.payload != null && field != null) {
-            res = field >= this.payload;
+            res = this.payload.compareTo(field) <= 0;
         }
 
         return res;
