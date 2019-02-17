@@ -30,11 +30,11 @@ public class PersonDTO {
         this.lastName = lastName;
     }
 
-    public Date getBornDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBornDate(Date bornDate) {
+    public void setBirthDate(Date bornDate) {
         this.birthDate = bornDate;
     }
 
