@@ -11,7 +11,7 @@ public class PersonDTO {
 
     private String name;
     private String lastName;
-    private Date bornDate;
+    private Date birthDate;
     private AddressDTO address;
 
     public String getName() {
@@ -31,11 +31,11 @@ public class PersonDTO {
     }
 
     public Date getBornDate() {
-        return bornDate;
+        return birthDate;
     }
 
     public void setBornDate(Date bornDate) {
-        this.bornDate = bornDate;
+        this.birthDate = bornDate;
     }
 
     public AddressDTO getAddress() {

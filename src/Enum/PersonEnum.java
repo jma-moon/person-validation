@@ -8,7 +8,7 @@ public enum PersonEnum {
 
     name("name"),
     lastName("lastName"),
-    bornDate("bornDate"),
+    birthDate("bornDate"),
     address("address"),
     line1("line1"),
     line2("line2"),

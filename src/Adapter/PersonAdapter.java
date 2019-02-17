@@ -23,7 +23,7 @@ public class PersonAdapter implements Adapter<PersonEnum, PersonDTO> {
                 case lastName:
                     value = person.getLastName();
                     break;
-                case bornDate:
+                case birthDate:
                     value = person.getBornDate();
                     break;
                 case address:
