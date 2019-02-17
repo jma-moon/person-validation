@@ -1,5 +1,6 @@
 package Validator.ValidationStrategy;
 
+import Storage.ValidationStorage;
 import Validator.ValidatorResponse.ValidatorResponse;
 
 /**
@@ -8,6 +9,6 @@ import Validator.ValidatorResponse.ValidatorResponse;
  */
 public interface ValidationStrategy<T> {
 
-    public ValidatorResponse validate(T item);
+    public ValidatorResponse validate(T item, ValidationStorage storage);
 
 }

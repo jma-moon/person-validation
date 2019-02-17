@@ -34,8 +34,8 @@ public class PersonDTO {
         return birthDate;
     }
 
-    public void setBirthDate(Date bornDate) {
-        this.birthDate = bornDate;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public AddressDTO getAddress() {

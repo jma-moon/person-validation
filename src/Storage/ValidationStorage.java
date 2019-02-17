@@ -1,7 +1,7 @@
 package Storage;
 
 import Validator.Validation;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +14,7 @@ public abstract class ValidationStorage {
     protected Map<String, List<Validation>> validations;
 
     public ValidationStorage() {
-        this.validations = new HashMap<>();
+        this.validations = new LinkedHashMap<>();
     }
 
     public Map<String, List<Validation>> getValidations() {

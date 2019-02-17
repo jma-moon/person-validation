@@ -10,5 +10,13 @@ public class ValidatorResponseSingle extends ValidatorResponse<String> {
     public boolean isValid() {
         return this.message == null;
     }
-    
+
+    @Override
+    public String toString() {
+        if (this.isValid()) {
+            return "Valid person";
+        } else {
+            return this.message;
+        }
+    }
 }

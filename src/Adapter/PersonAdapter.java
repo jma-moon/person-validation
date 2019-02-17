@@ -8,52 +8,52 @@ import Enum.PersonEnum;
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class PersonAdapter implements Adapter<PersonEnum, PersonDTO> {
+public class PersonAdapter implements Adapter<String, PersonDTO> {
 
     @Override
-    public Object getValue(PersonEnum field, PersonDTO person) {
+    public Object getValue(String field, PersonDTO person) {
 
         Object value = null;
 
         if (person != null) {
             switch (field) {
-                case name:
+                case "name":
                     value = person.getName();
                     break;
-                case lastName:
+                case "lastName":
                     value = person.getLastName();
                     break;
-                case birthDate:
+                case "birthDate":
                     value = person.getBirthDate();
                     break;
-                case address:
+                case "address":
                     value = person.getAddress();
                     break;
-                case line1:
+                case "line1":
                     value = person.getAddress() != null ?
                             person.getAddress().getLine1() : null;
                     break;
-                case line2:
+                case "line2":
                     value = person.getAddress() != null ?
                             person.getAddress().getLine2() : null;
                     break;
-                case line3:
+                case "line3":
                     value = person.getAddress() != null ?
                             person.getAddress().getLine3() : null;
                     break;
-                case country:
+                case "country":
                     value = person.getAddress() != null ?
                             person.getAddress().getCountry() : null;
                     break;
-                case state:
+                case "state":
                     value = person.getAddress() != null ?
                             person.getAddress().getState() : null;
                     break;
-                case county:
+                case "county":
                     value = person.getAddress() != null ?
                             person.getAddress().getCounty() : null;
                     break;
-                case city:
+                case "city":
                     value = person.getAddress() != null ?
                             person.getAddress().getCity() : null;
                     break;

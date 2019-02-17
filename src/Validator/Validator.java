@@ -1,5 +1,6 @@
 package Validator;
 
+import Storage.ValidationStorage;
 import Validator.ValidationStrategy.ValidationStrategy;
 import Validator.ValidatorResponse.ValidatorResponse;
 
@@ -9,7 +10,7 @@ import Validator.ValidatorResponse.ValidatorResponse;
  */
 public abstract class Validator<T> {
 
-    public ValidatorResponse validate(T item, ValidationStrategy<T> strategy) {
-        return strategy.validate(item);
+    public ValidatorResponse validate(T item, ValidationStrategy<T> strategy, ValidationStorage storage) {
+        return strategy.validate(item, storage);
     }
 }
