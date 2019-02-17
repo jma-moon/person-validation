@@ -6,6 +6,6 @@ package Validator;
  */
 public interface Validate<T> {
 
-    public boolean validate(T field);
+    public boolean validate(T item);
 
 }
