@@ -37,4 +37,8 @@ public class Validations {
         return new RegExpValidation(regExp, message);
     }
 
+    public static Validation notNull(String message) {
+        return new NotNullValidation(true, message);
+    }
+    
 }
