@@ -8,12 +8,12 @@ import Validator.Validation;
  */
 public class MinValidation extends Validation<Integer, Integer> {
 
-    public MinValidation(Integer payload) {
-        super(payload);
+    public MinValidation(Integer payload, String message) {
+        super(payload, message);
     }
 
     @Override
-    public boolean validate(Integer field) {
+    public String validate(Integer field) {
 
         boolean res = false;
 
@@ -21,7 +21,7 @@ public class MinValidation extends Validation<Integer, Integer> {
             res = field >= this.payload;
         }
 
-        return res;
+        return res ? null : this.message;
     }
 
 }

@@ -8,12 +8,12 @@ import Validator.Validation;
  */
 public class MaxLengthValidation extends Validation<String, Integer> {
 
-    public MaxLengthValidation(Integer payload) {
-        super(payload);
+    public MaxLengthValidation(Integer payload, String message) {
+        super(payload, message);
     }
 
     @Override
-    public boolean validate(String field) {
+    public String validate(String field) {
 
         boolean res = false;
 
@@ -21,7 +21,7 @@ public class MaxLengthValidation extends Validation<String, Integer> {
             res = field.length() <= this.payload;
         }
 
-        return res;
+        return res ? null : this.message;
     }
 
 }

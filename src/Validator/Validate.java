@@ -6,6 +6,6 @@ package Validator;
  */
 public interface Validate<T> {
 
-    public boolean validate(T item);
+    public String validate(T item);
 
 }

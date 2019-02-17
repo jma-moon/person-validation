@@ -8,12 +8,12 @@ import Validator.Validation;
  */
 public class MinLengthValidation extends Validation<String, Integer> {
 
-    public MinLengthValidation(Integer payload) {
-        super(payload);
+    public MinLengthValidation(Integer payload, String message) {
+        super(payload, message);
     }
 
     @Override
-    public boolean validate(String field) {
+    public String validate(String field) {
 
         boolean res = false;
 
@@ -21,7 +21,7 @@ public class MinLengthValidation extends Validation<String, Integer> {
             res = field.length() >= this.payload;
         }
 
-        return res;
+        return res ? null : this.message;
     }
 
 }

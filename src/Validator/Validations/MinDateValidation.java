@@ -9,12 +9,12 @@ import java.util.Date;
  */
 public class MinDateValidation extends Validation<Date, Date> {
 
-    public MinDateValidation(Date payload) {
-        super(payload);
+    public MinDateValidation(Date payload, String message) {
+        super(payload, message);
     }
 
     @Override
-    public boolean validate(Date field) {
+    public String validate(Date field) {
 
         boolean res = false;
 
@@ -22,7 +22,7 @@ public class MinDateValidation extends Validation<Date, Date> {
             res = this.payload.compareTo(field) <= 0;
         }
 
-        return res;
+        return res ? null : this.message;
     }
 
 }
