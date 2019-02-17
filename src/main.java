@@ -3,8 +3,9 @@ import DTO.Person.PersonDTO;
 import Input.PersonDTOInput;
 import Input.PersonValidationInput;
 import Output.Output;
-import Output.OutputConsoleValidationMessage;
+import Output.OutputConsole;
 import PersonValidator.PersonValidator;
+import PersonValidator.Strategies.ValidationStrategyMultiple;
 import PersonValidator.Strategies.ValidationStrategySingle;
 import Storage.ValidationStorage;
 import Validator.ValidationStrategy.ValidationStrategy;
@@ -25,11 +26,22 @@ public class main {
         
         Validator validator = new PersonValidator();
         PersonDTO person1 = new PersonDTOInput().getDTO();
-        ValidationStrategy strategy = new ValidationStrategySingle();
-        ValidatorResponse response = validator.validate(person1, strategy, personStorage);
+        ValidationStrategy singleStrategy = new ValidationStrategySingle();
+        ValidationStrategy multipleStrategy = new ValidationStrategyMultiple();
+        ValidatorResponse singleResponse = validator.validate(person1, singleStrategy, personStorage);
+        ValidatorResponse multipleResponse = validator.validate(person1, multipleStrategy, personStorage);
 
-        Output output = new OutputConsoleValidationMessage();
-        output.show(response);
+        Output output = new OutputConsole();
+        output.show("=======================\n"
+                  + "Single message response\n"
+                  + "=======================");
+        output.show(singleResponse);
+        output.show("\n");
+        output.show("=========================\n"
+                  + "Multiple message response\n"
+                  + "=========================");
+        output.show(multipleResponse);
+        output.show("\n");
     }
 
 }

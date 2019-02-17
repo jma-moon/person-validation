@@ -1,12 +1,13 @@
 package PersonValidator.Strategies;
 
-import DTO.Person.PersonDTO;
 import Adapter.PersonAdapter;
+import DTO.Person.PersonDTO;
 import Storage.ValidationStorage;
 import Validator.Validation;
 import Validator.ValidationStrategy.ValidationStrategy;
 import Validator.ValidatorResponse.ValidatorResponse;
-import Validator.ValidatorResponse.ValidatorResponseFactorySingle;
+import Validator.ValidatorResponse.ValidatorResponseFactoryMultiple;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -15,20 +16,23 @@ import java.util.Map;
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class ValidationStrategySingle implements ValidationStrategy<PersonDTO> {
+public class ValidationStrategyMultiple implements ValidationStrategy<PersonDTO> {
 
     @Override
     public ValidatorResponse validate(PersonDTO personDto, ValidationStorage storage) {
 
-        ValidatorResponse response = new ValidatorResponseFactorySingle().create();
+        ValidatorResponse response = new ValidatorResponseFactoryMultiple().create();
         Map<String, List<Validation>> validations = storage.getValidations();
+        List<String> messageList = new ArrayList<>();
 
-        TestValidationMap(validations, personDto, response);
+        TestValidationMap(validations, personDto, messageList);
 
+        response.setMessage(messageList);
+        
         return response;
     }
 
-    private void TestValidationMap(Map<String, List<Validation>> validations, PersonDTO personDto, ValidatorResponse response) {
+    private void TestValidationMap(Map<String, List<Validation>> validations, PersonDTO personDto, List<String> response) {
         for (Map.Entry<String, List<Validation>> entry : validations.entrySet()) {
             
             String field = entry.getKey();
@@ -36,25 +40,23 @@ public class ValidationStrategySingle implements ValidationStrategy<PersonDTO> {
 
             if (fieldValidations != null) {
                 Iterator<Validation> iterator = fieldValidations.iterator();
-                String aux = testValidationIterator(iterator, new PersonAdapter().getValue(field, personDto));
+                List<String> aux = testValidationIterator(iterator, new PersonAdapter().getValue(field, personDto));
                 if (aux != null) {
-                    response.setMessage(aux);
-                    break;
+                    response.addAll(aux);
                 }
             }
         }
     }
 
-    private String testValidationIterator(Iterator<Validation> iterator, Object field) {
+    private List<String> testValidationIterator(Iterator<Validation> iterator, Object field) {
 
-        String message = null;
+        List<String> message = new ArrayList<>();
 
         while (iterator.hasNext()) {
             String responseMessage = iterator.next().validate(field);
 
             if (responseMessage != null) {
-                message = responseMessage;
-                break;
+                message.add(responseMessage);
             }
         }
 

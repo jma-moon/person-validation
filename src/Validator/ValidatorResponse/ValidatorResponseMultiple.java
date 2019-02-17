@@ -26,4 +26,8 @@ public class ValidatorResponseMultiple extends ValidatorResponse<List<String>> {
             return result;
         }
     }
+    
+    public void addMessage(String message) {
+        this.message.add(message);
+    }
 }
