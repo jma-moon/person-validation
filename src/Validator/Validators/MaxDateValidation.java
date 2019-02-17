@@ -1,15 +1,15 @@
 package Validator.Validators;
 
-import Validator.Validator;
+import Validator.Validation;
 import java.util.Date;
 
 /**
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class MaxDateValidator extends Validator<Date, Date> {
+public class MaxDateValidation extends Validation<Date, Date> {
 
-    public MaxDateValidator(Date payload) {
+    public MaxDateValidation(Date payload) {
         super(payload);
     }
 

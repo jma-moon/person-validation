@@ -1,17 +1,17 @@
 package Validator.Validators;
 
-import Validator.Validator;
+import Validator.Validation;
 import java.util.regex.Pattern;
 
 /**
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class RegExpValidator extends Validator<String, String> {
+public class RegExpValidation extends Validation<String, String> {
 
     private Pattern pattern;
 
-    public RegExpValidator(String payload) {
+    public RegExpValidation(String payload) {
         super(payload);
 
         this.pattern = Pattern.compile(payload);

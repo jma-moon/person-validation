@@ -1,14 +1,14 @@
 package Validator.Validators;
 
-import Validator.Validator;
+import Validator.Validation;
 
 /**
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class MinLengthValidator extends Validator<String, Integer> {
+public class MaxLengthValidation extends Validation<String, Integer> {
 
-    public MinLengthValidator(Integer payload) {
+    public MaxLengthValidation(Integer payload) {
         super(payload);
     }
 
@@ -18,7 +18,7 @@ public class MinLengthValidator extends Validator<String, Integer> {
         boolean res = false;
 
         if (this.payload != null && field != null) {
-            res = field.length() >= this.payload;
+            res = field.length() <= this.payload;
         }
 
         return res;

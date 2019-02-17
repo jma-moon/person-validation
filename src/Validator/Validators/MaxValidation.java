@@ -1,14 +1,14 @@
 package Validator.Validators;
 
-import Validator.Validator;
+import Validator.Validation;
 
 /**
  *
  * @author Jose Arandia Luna https://github.com/jma-moon
  */
-public class MaxValidator extends Validator<Integer, Integer> {
+public class MaxValidation extends Validation<Integer, Integer> {
 
-    public MaxValidator(Integer payload) {
+    public MaxValidation(Integer payload) {
         super(payload);
     }
 
